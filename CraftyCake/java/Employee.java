@@ -27,6 +27,9 @@ public class Employee implements Comparable<Employee>{
         }
         return wage;
     }
+    public void printEmployee(){
+        System.out.println("Employee name: " + getName() + "\n" + "Wage = " + getWage());
+    }
     @Override
     public int compareTo(Employee o) {
         if (this.cakesMade == o.cakesMade){
