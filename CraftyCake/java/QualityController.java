@@ -1,4 +1,5 @@
-public class QualityController extends Employee{
+package CraftyCake.java;
+public class QualityController extends Employee {
     public QualityController(String name, int cakesMade){
         super(name + "(QC)", cakesMade);
     }
