@@ -1,40 +1,52 @@
 package CraftyCake.java;
-public class Employee implements Comparable<Employee>{
+
+public class Employee extends Team implements Comparable<Employee> {
     private String name;
     private int cakesMade;
-    public Employee(String name, int cakesMade){
+
+    public Employee(String name, int cakesMade) {
         this.name = name;
         this.cakesMade = cakesMade;
     }
+
     public String getName() {
         return name;
     }
+
     public int getCakesMade() {
         return cakesMade;
     }
-    public void setCakesMade(int addCakes) {
-        this.cakesMade = cakesMade + addCakes;
-    }
-    public void setErrorCakes(int subCakes){
-        this.cakesMade = cakesMade - subCakes * 2;
-    }
-    public double getWage(){
+
+    public double getWage() {
         double wage;
-        if(cakesMade <= 50){
-            wage = cakesMade * 0.1;
-        }else{
-            wage = (50 * 0.1) + ((cakesMade - 50) * 0.15);
-        }
+        wage = (50 * 0.1) + (getCakesMade() - 50) * 0.15;
         return wage;
     }
-    public void printEmployee(){
-        System.out.println("Employee name: " + getName() + "\n" + "Wage = " + getWage());
+
+    public void addCakesMade(int addCakes) {
+        this.cakesMade = cakesMade + addCakes;
     }
+
+    public void setErrorCakes(int subCakes) throws Exception {
+        if (cakesMade - subCakes * 2 >= 0) {
+            this.cakesMade = cakesMade - subCakes * 2;
+        } else {
+            throw new Exception(getName() + "'s " + "Cakes made cannot be less than 0, " +
+                    "please enter a value less than " + cakesMade / 2 + " " +
+                    "for error cakes value, otherwise it will remain at the last remaining value\n");
+        }
+    }
+
+    public void printEmployee() {
+        System.out.println("Employee name: " + getName() + "\n" + "Wage = " + getMoney(getWage()));
+    }
+
     @Override
     public int compareTo(Employee o) {
-        if (this.cakesMade == o.cakesMade){
+        if (this.getCakesMade() == o.getCakesMade()) {
             return this.getName().compareToIgnoreCase(o.getName());
+        } else {
+            return o.getCakesMade() - this.getCakesMade();
         }
-        else{return this.cakesMade - o.cakesMade;}
     }
 }

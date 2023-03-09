@@ -4,7 +4,7 @@ public class QualityController extends Employee {
         super(name + "(QC)", cakesMade);
     }
     @Override
-    public double getWage(){
-        return super.getWage() * 1.12;
+    public double getWage() {
+            return super.getWage() * 1.12;
     }
 }
