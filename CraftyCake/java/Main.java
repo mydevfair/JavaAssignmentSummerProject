@@ -2,7 +2,8 @@ package CraftyCake.java;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Team team = new Team();
+        Team team = new Team(); // Create new instance of team array
+        //Create all instances of required employees
         Employee bob = new Employee("Bob", 100);
         Employee andrew = new Employee("Andrew", 162);
         Employee hafsa = new Employee("Hafsa", 34);
@@ -11,7 +12,7 @@ public class Main {
         Employee gary = new Employee("Gary", 49);
         Employee diane = new Employee("Diane", 217);
         Employee rabia = new QualityController("Rabia", 385);
-
+        //Add all employees to team array
         team.addEmployee(bob);
         team.addEmployee(andrew);
         team.addEmployee(hafsa);
@@ -20,58 +21,62 @@ public class Main {
         team.addEmployee(gary);
         team.addEmployee(diane);
         team.addEmployee(rabia);
-
-        try{
+        //Print single employee details
+        bob.printEmployee();
+        //Call methods to add cakes and set error cakes and handle exceptions
+        try {
             bob.setErrorCakes(100);
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try{
-            andrew.addCakesMade(32);
-            andrew.setErrorCakes(16);
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try{
-            hafsa.addCakesMade(44);
-            hafsa.setErrorCakes(21);
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try{
-            ayub.addCakesMade(102);
-            ayub.setErrorCakes(12);
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try{
-            amaan.addCakesMade(56);
-            amaan.setErrorCakes(1);
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try{
-            gary.addCakesMade(62);
-            gary.setErrorCakes(11);
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-        }
-        try{
-            diane.addCakesMade(10);
-            diane.setErrorCakes(2);
-        }catch (Exception exception){
+        } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
         try {
-            team.sortTeam();
-        }catch (Exception exception){
+            andrew.addCakesMade(32);
+            andrew.setErrorCakes(16);
+        } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
+        try {
+            hafsa.addCakesMade(44);
+            hafsa.setErrorCakes(21);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            ayub.addCakesMade(102);
+            ayub.setErrorCakes(12);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            amaan.addCakesMade(56);
+            amaan.setErrorCakes(1);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            gary.addCakesMade(62);
+            gary.setErrorCakes(11);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            diane.addCakesMade(10);
+            diane.setErrorCakes(2);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        //Call method to sort team with exception handling
+        try {
+            team.sortTeam();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+        //Call method to print teams details with exception handling
         try {
             System.out.println(team.printTeam());
             System.out.println(team.printTeamTotalWages());
             System.out.println(team.printTeamTotalCakes());
-        }catch (Exception exception){
+        } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
     }
