@@ -1,7 +1,7 @@
 package CraftyCake.java;
 
 public class Employee extends Team implements Comparable<Employee> {
-    private String name; //Declare variable with private attribute for objects name
+    private final String name; //Declare variable with private attribute for objects name
     private int cakesMade; //Declare variable with private attribute for objects cakes made value
 
     //Create constructor for employee objects
@@ -24,35 +24,38 @@ public class Employee extends Team implements Comparable<Employee> {
     public double getWage() {
         double wage;
         wage = (50 * 0.1) + (getCakesMade() - 50) * 0.15;
-        if (wage < 0) {
+        if (wage <= 0) {
             wage = 0;
         }
         return wage;
     }
 
-    //Method for adding cakes made to employee
+    //Method for adding cakes made to employee total cakes made
     public void addCakesMade(int addCakes) {
         this.cakesMade = cakesMade + addCakes;
     }
 
-    //Method for setting error cakes deductions to employee with exception
+    //Method for setting error cakes deductions to employee with exception message
+    //If error cakes takes cakes into a minus deficit cakes made is set to zero and
+    //Notifies user
     public void setErrorCakes(int subCakes) throws Exception {
         if (cakesMade - subCakes * 2 >= 0) {
             this.cakesMade = cakesMade - subCakes * 2;
         } else {
-            cakesMade = 0;
-            throw new Exception("\n" + getName() + "'s " + "Cakes made has been set to 0 " +
-                    "error cakes would have put them into a minus deficit\n");
+            throw new Exception(getName() + "'s " + "Cakes made cannot be less than 0, " +
+                    "please enter a value less than " + cakesMade / 2 + " " +
+                    "for error cakes value, otherwise it will remain at the last remaining value\n");
         }
     }
 
     //Method to print individual employee details
     public void printEmployee() {
-        System.out.println("Employee name: " + getName() + "\n" + "Cakes made: " + getCakesMade() + "\n" + "Wage = " + getMoney(getWage()));
+        System.out.println("Employee name: " + getName() + "\n" + "Cakes made: " + getCakesMade() +
+                "\n" + "Wage = " + getMoney(getWage()) + "\n");
     }
 
     //Override of compare to method which changes the method to sort firstly by
-    //cakesMade descending order, and then alphabetically if cakesMade are equal
+    //cakesMade in descending order, and then alphabetically if cakesMade are equal
     @Override
     public int compareTo(Employee o) {
         if (this.getCakesMade() == o.getCakesMade()) {
