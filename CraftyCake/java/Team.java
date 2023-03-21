@@ -23,7 +23,7 @@ public class Team {
     //Method to sort team as instructed with exception handling
     public void sortTeam() throws Exception {
         if (team.isEmpty()) {
-            throw new Exception("Team list is empty\n");
+            throw new Exception("Cannot sort an empty team list\n");
         } else {
             Collections.sort(team);
         }

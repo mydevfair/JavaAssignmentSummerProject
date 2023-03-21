@@ -42,7 +42,7 @@ public class Employee extends Team implements Comparable<Employee> {
         if (cakesMade - subCakes * 2 >= 0) {
             this.cakesMade = cakesMade - subCakes * 2;
         } else {
-            throw new Exception(getName() + "'s " + "Cakes made cannot be less than 0, " +
+            throw new Exception("ERROR!!!!" + getName() + "'s " + "Cakes made cannot be less than 0, " +
                     "please enter a value less than " + cakesMade / 2 + " " +
                     "for error cakes value, otherwise it will remain at the last remaining value\n");
         }
