@@ -60,7 +60,8 @@ public class Team {
             sb.append("\n");
             sb.append("|-------------------------------------|\n");
             for (Employee i : team) {
-                sb.append(String.format("|%-10s| %10s | %10s  |", i.getName(), i.getCakesMade(), getMoney(i.getWage())));
+                sb.append(String.format("|%-10s| %10s | %10s  |",
+                        i.getName(), i.getCakesMade(), getMoney(i.getWage())));
                 sb.append("\n");
                 sb.append("|-------------------------------------|\n");
             }
@@ -70,7 +71,7 @@ public class Team {
 
     //Method to print teams total wages
     //Throws exception if team is empty
-    public String printTeamTotalWages() throws Exception {
+    public String printTeamTotalWages() {
         String sb = "Team Total Wages: " + getMoney(getTeamTotalWages()) +
                 "\n";
         return sb;

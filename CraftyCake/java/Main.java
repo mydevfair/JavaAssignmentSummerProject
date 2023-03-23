@@ -1,7 +1,7 @@
 package CraftyCake.java;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Team team = new Team(); // Create new instance of team array
         //Create all instances of required employees
         Employee bob = new Employee("Bob", 100);
@@ -35,8 +35,8 @@ public class Main {
         team.addEmployee(diane);
         team.addEmployee(rabia);
         //Print single employee details
-        bob.printEmployee();
-        andrew.printEmployee();
+
+        System.out.println(bob.printEmployee());
         //Call methods to add cakes and set error cakes and handle exceptions
         try {
             bob.setErrorCakes(100);

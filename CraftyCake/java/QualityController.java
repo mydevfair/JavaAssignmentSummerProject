@@ -10,7 +10,6 @@ public class QualityController extends Employee {
 
     //Override of the getWage method in employee class to add 12% to wages
     @Override
-    public double getWage() {
-        return super.getWage() * 1.12;
+    public double getWage() {return super.getWage() * 1.12;
     }
 }

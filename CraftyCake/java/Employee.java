@@ -49,9 +49,9 @@ public class Employee extends Team implements Comparable<Employee> {
     }
 
     //Method to print individual employee details
-    public void printEmployee() {
-        System.out.println("Employee name: " + getName() + "\n" + "Cakes made: " + getCakesMade() +
-                "\n" + "Wage = " + getMoney(getWage()) + "\n");
+    public String printEmployee() throws Exception {
+        return String.format("|%-10s| %10s | %10s  |",
+                this.getName(), this.getCakesMade(), getMoney(this.getWage()));
     }
 
     //Override of compare to method which changes the method to sort firstly by
