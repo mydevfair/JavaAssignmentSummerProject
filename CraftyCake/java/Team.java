@@ -50,24 +50,23 @@ public class Team {
     //Method to print the full team in a neat table
     //Throws exception if team is empty
     public String printTeam() throws Exception {
+        StringBuilder sb = new StringBuilder();
         if (team.isEmpty()) {
             throw new Exception("Cannot print as the team list is empty\n");
         } else {
-            StringBuilder sb = new StringBuilder();
             sb.append("       CRAFTY CAKE COMPANY LTD\n");
             sb.append("|-------------------------------------|\n");
             sb.append(String.format("%-10s | %10s | %13s", "|Name", "Cakes Made", "Wage |"));
             sb.append("\n");
             sb.append("|-------------------------------------|\n");
             for (Employee i : team) {
-                sb.append(String.format("|%-10s| %10s | %10s  |",
-                        i.getName(), i.getCakesMade(), getMoney(i.getWage())));
-                sb.append("\n");
-                sb.append("|-------------------------------------|\n");
+                sb.append(i.printEmployee());
             }
+            sb.append("|-------------------------------------|\n");
             return sb.toString();
         }
     }
+
 
     //Method to print teams total wages
     //Throws exception if team is empty
@@ -90,3 +89,4 @@ public class Team {
         return nf.format(amount);
     }
 }
+

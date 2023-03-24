@@ -35,7 +35,7 @@ public class Main {
         team.addEmployee(diane);
         team.addEmployee(rabia);
         //Print single employee details
-
+        System.out.println(rabia.printEmployee());
         System.out.println(bob.printEmployee());
         //Call methods to add cakes and set error cakes and handle exceptions
         try {
