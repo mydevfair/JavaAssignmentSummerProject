@@ -1,8 +1,6 @@
 package CraftyCake.java;
 //Java library imports
 
-import java.util.Locale;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -54,39 +52,35 @@ public class Team {
         if (team.isEmpty()) {
             throw new Exception("Cannot print as the team list is empty\n");
         } else {
-            sb.append("       CRAFTY CAKE COMPANY LTD\n");
-            sb.append("|-------------------------------------|\n");
-            sb.append(String.format("%-10s | %10s | %13s", "|Name", "Cakes Made", "Wage |"));
-            sb.append("\n");
-            sb.append("|-------------------------------------|\n");
+            sb.append(util.tableHeads());
             for (Employee i : team) {
                 sb.append(i.printEmployee());
             }
-            sb.append("|-------------------------------------|\n");
+            sb.append(util.tableFoot());
             return sb.toString();
         }
     }
 
-
     //Method to print teams total wages
     //Throws exception if team is empty
-    public String printTeamTotalWages() {
-        String sb = "Team Total Wages: " + getMoney(getTeamTotalWages()) +
-                "\n";
-        return sb;
+    public String printTeamTotalWages() throws Exception {
+        if (team.isEmpty()) {
+            throw new Exception("Cannot sort an empty team list\n");
+        } else {
+            String sb = "Team Total Wages: " + util.getMoney(getTeamTotalWages()) +
+                    "\n";
+            return sb;
+        }
     }
 
     //Method to print teams total cakes made
-    public String printTeamTotalCakes() {
-        String sb = "Team Total Cakes: " + getTeamTotalCakes() +
-                "\n";
-        return sb;
-    }
-
-    //Method to get currency instance values
-    public String getMoney(double amount) {
-        NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.UK);
-        return nf.format(amount);
+    public String printTeamTotalCakes() throws Exception {
+        if (team.isEmpty()) {
+            throw new Exception("Cannot sort an empty team list\n");
+        } else {
+            String sb = "Team Total Cakes: " + getTeamTotalCakes() +
+                    "\n";
+            return sb;
+        }
     }
 }
-

@@ -1,6 +1,7 @@
 package CraftyCake.java;
 
-public class Employee extends Team implements Comparable<Employee> {
+public class Employee implements Comparable<Employee> {
+
     private final String name; //Declare variable with private attribute for objects name
     private int cakesMade; //Declare variable with private attribute for objects cakes made value
 
@@ -49,10 +50,9 @@ public class Employee extends Team implements Comparable<Employee> {
     }
 
     //Method to print individual employee details
-    public String printEmployee() throws Exception {
-        return
-                String.format("|%-10s| %10s | %12s|\n",
-                        this.getName(), this.getCakesMade(), getMoney(this.getWage()));
+    public String printEmployee() {
+        return String.format("|%-10s| %10s | %12s|\n",
+                this.getName(), this.getCakesMade(), util.getMoney(this.getWage()));
     }
 
     //Override of compare to method which changes the method to sort firstly by

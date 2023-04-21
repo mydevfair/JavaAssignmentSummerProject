@@ -5,10 +5,10 @@ public class Main {
         Team team = new Team(); // Create new instance of team array
         //Create all instances of required employees
         Employee bob = new Employee("Bob", 100);
-        Employee andrew = new Employee("Andrew", 101);
+        Employee andrew = new Employee("Andrew", 162);
         Employee hafsa = new Employee("Hafsa", 34);
-        Employee ayub = new Employee("Ayub", 101);
-        Employee amaan = new Employee("Amaan", 101);
+        Employee ayub = new Employee("Ayub", 193);
+        Employee amaan = new Employee("Amaan", 309);
         Employee gary = new Employee("Gary", 49);
         Employee diane = new Employee("Diane", 217);
         Employee rabia = new QualityController("Rabia", 385);
@@ -35,17 +35,21 @@ public class Main {
         team.addEmployee(diane);
         team.addEmployee(rabia);
         //Print single employee details
+        System.out.println(rabia.getName());
         System.out.println(rabia.printEmployee());
+
         System.out.println(bob.printEmployee());
+        System.out.println(andrew.printEmployee());
+
         //Call methods to add cakes and set error cakes and handle exceptions
         try {
-            bob.setErrorCakes(100);
+            bob.setErrorCakes(51);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
         try {
             andrew.addCakesMade(32);
-            andrew.setErrorCakes(18);
+            andrew.setErrorCakes(16);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
@@ -69,7 +73,7 @@ public class Main {
         }
         try {
             gary.addCakesMade(62);
-            gary.setErrorCakes(25);
+            gary.setErrorCakes(11);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
@@ -86,6 +90,14 @@ public class Main {
             System.out.println(exception.getMessage());
         }
         //Call method to print teams details with exception handling
+        try {
+            System.out.println(team.printTeam());
+            System.out.println(team.printTeamTotalWages());
+            System.out.println(team.printTeamTotalCakes());
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+
         try {
             System.out.println(team.printTeam());
             System.out.println(team.printTeamTotalWages());
