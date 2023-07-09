@@ -1,4 +1,7 @@
-package CraftyCake.java;
+package CraftyCake.java.Model;
+
+import CraftyCake.java.Assets.Utils;
+import CraftyCake.java.Model.Employee;
 
 public class QualityController extends Employee {
     //Constructor for Quality Controller object which inherits all employee attributes
@@ -16,6 +19,6 @@ public class QualityController extends Employee {
     @Override
     public String printEmployee() {
         return String.format("|%-10s| %10s | %12s|\n",
-                this.getName() + " QC", this.getCakesMade(), util.getMoney(this.getWage()));
+                this.getName() + " QC", this.getCakesMade(), Utils.getMoney(this.getWage()));
     }
 }

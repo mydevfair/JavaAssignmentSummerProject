@@ -1,12 +1,21 @@
-package CraftyCake.java;
+package CraftyCake.java.Controller;
 //Java library imports
 
+import CraftyCake.java.DBAL.TeamDBAL;
+import CraftyCake.java.Assets.Utils;
+import CraftyCake.java.Model.Employee;
 import java.util.ArrayList;
 import java.util.Collections;
-
+import java.sql.SQLException;
 
 public class Team {
-    private final ArrayList<Employee> team = new ArrayList<>(); //Create array list to hold all employees
+    private ArrayList<Employee> team; //Create array list to hold all employees
+
+    private TeamDBAL teamDBAL = new TeamDBAL();
+
+    public Team()throws SQLException {
+        this.team = teamDBAL.getEmployees();
+    }
 
     //Method to add employees to team array list
     public void addEmployee(Employee i) {
@@ -52,11 +61,11 @@ public class Team {
         if (team.isEmpty()) {
             throw new Exception("Cannot print as the team list is empty\n");
         } else {
-            sb.append(util.tableHeads());
+            sb.append(Utils.tableHeads());
             for (Employee i : team) {
                 sb.append(i.printEmployee());
             }
-            sb.append(util.tableFoot());
+            sb.append(Utils.tableFoot());
             return sb.toString();
         }
     }
@@ -67,7 +76,7 @@ public class Team {
         if (team.isEmpty()) {
             throw new Exception("Cannot sort an empty team list\n");
         } else {
-            String sb = "Team Total Wages: " + util.getMoney(getTeamTotalWages()) +
+            String sb = "Team Total Wages: " + Utils.getMoney(getTeamTotalWages()) +
                     "\n";
             return sb;
         }

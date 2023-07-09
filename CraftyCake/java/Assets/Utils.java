@@ -1,9 +1,9 @@
-package CraftyCake.java;
+package CraftyCake.java.Assets;
 
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class util {
+public class Utils {
 
     public static String getMoney(double amount) {
         NumberFormat nf = NumberFormat.getCurrencyInstance(Locale.UK);

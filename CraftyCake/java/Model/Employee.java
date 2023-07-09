@@ -1,4 +1,6 @@
-package CraftyCake.java;
+package CraftyCake.java.Model;
+
+import CraftyCake.java.Assets.Utils;
 
 public class Employee implements Comparable<Employee> {
 
@@ -52,7 +54,7 @@ public class Employee implements Comparable<Employee> {
     //Method to print individual employee details
     public String printEmployee() {
         return String.format("|%-10s| %10s | %12s|\n",
-                this.getName(), this.getCakesMade(), util.getMoney(this.getWage()));
+                this.getName(), this.getCakesMade(), Utils.getMoney(this.getWage()));
     }
 
     //Override of compare to method which changes the method to sort firstly by
