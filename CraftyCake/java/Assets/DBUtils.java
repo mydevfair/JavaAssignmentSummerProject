@@ -8,7 +8,7 @@ public class DBUtils {
     public DBUtils() {
         if (isHome) {
             systemName = "localhost";
-            dbName = "summer_project.employee";
+            dbName = "summer_project";
             user = "root";
             pass = "Glastonbury2022!";
         } else {

@@ -13,8 +13,8 @@ public class Main {
 
             team.sortTeam();
             System.out.println(team.printTeam());
-            System.out.println(team.getTeamTotalCakes() + " Cakes Covered");
-            System.out.println(team.printTeamTotalWages() + " Total wages");
+            System.out.println(team.printTeamTotalCakes());
+            System.out.println(team.printTeamTotalWages());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
