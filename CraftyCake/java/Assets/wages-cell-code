@@ -1,0 +1,6 @@
+        //TableColumn<Employee, String> colWages = new TableColumn<>("Wages");
+//        colWages.setMinWidth(200);
+//        colWages.setCellValueFactory(cellData -> {
+//            Employee employee = cellData.getValue();
+//            return new SimpleStringProperty(utils.formatMoney(employee.getWages()));
+//        });

@@ -31,6 +31,5 @@ public class TeamDBAL {
         conn.close();
     }
 
-    public ArrayList<Employee> getEmployees(){
-        return this.employees;}
+    public ArrayList<Employee> getEmployees() {return this.employees;}
 }

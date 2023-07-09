@@ -4,6 +4,9 @@ package CraftyCake.java.Controller;
 import CraftyCake.java.DBAL.TeamDBAL;
 import CraftyCake.java.Assets.Utils;
 import CraftyCake.java.Model.Employee;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.sql.SQLException;
@@ -91,5 +94,8 @@ public class Team {
                     "\n";
             return sb;
         }
+    }
+    public ObservableList<Employee> getTeamAsOAL(){
+        return FXCollections.observableArrayList(team);
     }
 }

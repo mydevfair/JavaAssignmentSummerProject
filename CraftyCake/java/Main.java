@@ -2,21 +2,21 @@ package CraftyCake.java;
 
 import CraftyCake.java.Assets.Utils;
 import CraftyCake.java.Controller.Team;
-import CraftyCake.java.Model.Employee;
-import CraftyCake.java.Model.QualityController;
+import CraftyCake.java.View.AllEmployeesScreenController;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Main {
-    public static void main(String[] args) throws Exception {
-        try {
-            Utils utils = new Utils();
-            Team team = new Team();
+public class Main extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-            team.sortTeam();
-            System.out.println(team.printTeam());
-            System.out.println(team.printTeamTotalCakes());
-            System.out.println(team.printTeamTotalWages());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    @Override
+    //stage comes from the Application interface
+    public void start(Stage stage) throws Exception {
+        // Create the first controller, which loads AllEmployeesScreen.fxml within its own constructor
+        AllEmployeesScreenController allEmployeesScreenController = new AllEmployeesScreenController();
+        // Show the new stage
+        allEmployeesScreenController.showStage();
     }
 }
