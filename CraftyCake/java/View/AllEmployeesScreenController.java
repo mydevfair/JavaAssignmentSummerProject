@@ -2,6 +2,8 @@ package CraftyCake.java.View;
 
 import CraftyCake.java.Assets.Utils;
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,9 @@ public class AllEmployeesScreenController {
 
     @FXML
     private TableView<Employee> tblEmployees;
+
+    @FXML
+    Label lblTotalCakesCovered, lblTotalWages;
 
     private Utils utils = new Utils();
 
@@ -53,12 +58,31 @@ public class AllEmployeesScreenController {
 
         TableColumn<Employee, Double> colCakes = new TableColumn<>("Cakes Covered");
         colCakes.setMinWidth(200);
-        colCakes.setCellValueFactory(new PropertyValueFactory<>("cakesCovered"));
+        colCakes.setCellValueFactory(new PropertyValueFactory<>("cakesMade"));
 
+        TableColumn<Employee, String> colWages = new TableColumn<>("Wages");
+        colWages.setMinWidth(200);
+        colWages.setCellValueFactory(
+                cellData -> {
+                    Employee employee = cellData.getValue();
+                    return new SimpleStringProperty(Utils.getMoney(employee.getWage()));
+        });
 
+        TableColumn<Employee, String> colAddCakes = new TableColumn<>("+ Cakes");
+        colAddCakes.setMinWidth(100);
+        colAddCakes.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        TableColumn<Employee, String> colMinusCakes = new TableColumn<>("- Cakes");
+        colMinusCakes.setMinWidth(100);
+        colMinusCakes.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        this.tblEmployees.setEditable(true);
 
         this.tblEmployees.setItems(team.getTeamAsOAL());
-        this.tblEmployees.getColumns().addAll(colName, colCakes);
+        this.tblEmployees.getColumns().addAll(colName, colCakes, colWages, colAddCakes, colMinusCakes);
+
+        this.lblTotalCakesCovered.setText(String.valueOf(team.getTeamTotalCakes()));
+        this.lblTotalWages.setText(String.valueOf(Utils.getMoney(team.getTeamTotalWages())));
 
     }
 }
