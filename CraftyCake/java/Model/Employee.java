@@ -34,8 +34,12 @@ public class Employee implements Comparable<Employee> {
     }
 
     //Method for adding cakes made to employee total cakes made
-    public void addCakesMade(int addCakes) {
-        this.cakesMade = cakesMade + addCakes;
+    public void addCakesMade(int addCakes) throws Exception {
+        if (addCakes > 0){
+            this.cakesMade += addCakes;
+        }else {
+            throw new Exception("Must provide a number greater than zero");
+        }
     }
 
     //Method for setting error cakes deductions to employee with exception message

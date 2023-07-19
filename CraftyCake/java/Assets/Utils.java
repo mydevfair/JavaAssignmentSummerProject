@@ -1,5 +1,7 @@
 package CraftyCake.java.Assets;
 
+import javafx.scene.control.Alert;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -21,5 +23,11 @@ public class Utils {
         StringBuilder sb = new StringBuilder();
         sb.append("|-------------------------------------|\n");
         return sb.toString();
+    }
+    public void drawAlert(String message, String header, Alert.AlertType type){
+        Alert a = new Alert(type);
+        a.setHeaderText(header);
+        a.setContentText(message);
+        a.show();
     }
 }
