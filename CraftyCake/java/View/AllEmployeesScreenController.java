@@ -95,16 +95,11 @@ public class AllEmployeesScreenController {
         colMinusCakes.setOnEditCommit(
                 event-> {
                     try {
-                        //get the value entered into text field
-                        String value = String.valueOf(event.getNewValue());
-                        //convert the entered text ti an int
-                        Integer v = Integer.parseInt(value);
                         Employee employee = getSelectedEmployeeFromTable(event);
                         //update that employee using the addCakes method with the new value
-                        System.out.println(employee.getCakesMade());
-                        employee.setErrorCakes(v);
-                        team.updateEmployee(employee);
+                        employee.setErrorCakes(Integer.parseInt(event.getNewValue()));
                         //reflect the changes in the GUI
+                        team.updateEmployee(employee);
                         tblEmployees.refresh();
                     } catch (Exception e) {
                         utils.drawAlert(e.getMessage(), "ERROR!!!!", Alert.AlertType.WARNING);
