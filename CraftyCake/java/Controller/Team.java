@@ -84,7 +84,12 @@ public class Team {
             return sb;
         }
     }
-
+    public void updateEmployee(Employee emp) throws SQLException{
+        int result = teamDBAL.updateEmployee(emp);
+        if (result == 0) {
+            throw new SQLException("Employee not updated");
+        }
+    }
     //Method to print teams total cakes made
     public String printTeamTotalCakes() throws Exception {
         if (team.isEmpty()) {

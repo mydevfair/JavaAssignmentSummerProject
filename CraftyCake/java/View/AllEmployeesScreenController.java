@@ -13,9 +13,6 @@ import CraftyCake.java.Model.Employee;
 import CraftyCake.java.Controller.Team;
 
 
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -80,10 +77,11 @@ public class AllEmployeesScreenController {
         colAddCakes.setOnEditCommit(
                 event-> {
                     try {
-                        Employee employee = getSelectedEmployee(event);
+                        Employee employee = getSelectedEmployeeFromTable(event);
                         //update that employee using the addCakes method with the new value
                         employee.addCakesMade(Integer.parseInt(event.getNewValue()));
                         //reflect the changes in the GUI
+                        team.updateEmployee(employee);
                         tblEmployees.refresh();
                     } catch (Exception e) {
                         utils.drawAlert(e.getMessage(), "ERROR!!!!", Alert.AlertType.WARNING);
@@ -101,10 +99,11 @@ public class AllEmployeesScreenController {
                         String value = String.valueOf(event.getNewValue());
                         //convert the entered text ti an int
                         Integer v = Integer.parseInt(value);
-                        Employee employee = getSelectedEmployee(event);
+                        Employee employee = getSelectedEmployeeFromTable(event);
                         //update that employee using the addCakes method with the new value
                         System.out.println(employee.getCakesMade());
                         employee.setErrorCakes(v);
+                        team.updateEmployee(employee);
                         //reflect the changes in the GUI
                         tblEmployees.refresh();
                     } catch (Exception e) {
@@ -122,7 +121,7 @@ public class AllEmployeesScreenController {
         this.lblTotalWages.setText(String.valueOf(Utils.getMoney(team.getTeamTotalWages())));
 
     }
-    public Employee getSelectedEmployee(TableColumn.CellEditEvent event){
+    public Employee getSelectedEmployeeFromTable(TableColumn.CellEditEvent event){
         //get the employee from the current row selected
         int selectedRow = event.getTablePosition().getRow();
         Employee employee = (Employee) event.getTableView().getItems().get(selectedRow);

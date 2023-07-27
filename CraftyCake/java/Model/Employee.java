@@ -1,16 +1,23 @@
 package CraftyCake.java.Model;
 
 import CraftyCake.java.Assets.Utils;
+import CraftyCake.java.DBAL.TeamDBAL;
 
 public class Employee implements Comparable<Employee> {
 
     private final String name; //Declare variable with private attribute for objects name
     private int cakesMade; //Declare variable with private attribute for objects cakes made value
+    private int id;
 
     //Create constructor for employee objects
-    public Employee(String name, int cakesMade) {
+    public Employee(String name, int cakesMade, int id) {
         this.name = name;
         this.cakesMade = cakesMade;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     //Getter method for accessing private variable
@@ -37,7 +44,8 @@ public class Employee implements Comparable<Employee> {
     public void addCakesMade(int addCakes) throws Exception {
         if (addCakes > 0){
             this.cakesMade += addCakes;
-        }else {
+
+        } else{
             throw new Exception("Must provide a number greater than zero");
         }
     }

@@ -5,8 +5,8 @@ import CraftyCake.java.Model.Employee;
 
 public class QualityController extends Employee {
     //Constructor for Quality Controller object which inherits all employee attributes
-    public QualityController(String name, int cakesMade) {
-        super(name, cakesMade);
+    public QualityController(String name, int cakesMade, int id) {
+        super(name, cakesMade, id);
     }
 
     //Override of the getWage method in employee class to add 12% to wages
