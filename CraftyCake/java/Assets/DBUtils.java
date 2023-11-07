@@ -10,7 +10,7 @@ public class DBUtils {
             systemName = "localhost";
             dbName = "summer_project";
             user = "root";
-            pass = "Glastonbury2022!";
+            pass = "****************";
         } else {
             System.out.println("Failed");
         }
